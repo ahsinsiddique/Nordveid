@@ -1,0 +1,71 @@
+<mat-toolbar>
+  <button mat-icon-button class="icon" aria-label="icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>E Shop</span>
+  <span class="spacer"></span>
+  <button mat-icon-button class="favorite-icon" aria-label=" icon-button with heart icon">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-icon-button class="icon" aria-label=" icon-button with share icon">
+    <mat-icon><span class="material-icons">
+shopping_cart
+</span></mat-icon>
+  </button>
+
+  <button mat-icon-button class="icon" aria-label=" icon-button with share icon">
+    <mat-icon>view_headline</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container">
+
+
+  <div fxLayout="row" class="shop">
+
+    <div fxFlex="100" fxFlexFill>
+
+
+      <div fxflex="40" >
+        <h2>Men's Shop</h2>
+      </div>
+
+      <div fxFlex="45">
+
+      </div>
+
+
+      <div fxFlex class="share-icon">
+        <mat-icon>sort</mat-icon>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div fxLayout="row" class="shop">
+
+    <div fxFlex="100" fxFlexFill>
+
+      <div fxFlex="10" *ngFor="let item of productTypes">
+        <p>{{item.type + ' (' + item.quantity + ')'}}</p>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <mat-grid-list cols="2" rowHeight="2:2">
+
+
+    <mat-grid-tile *ngFor="let product of products">
+      <app-product [product]="product" (onProductSelected)="onProductSelected($event)"></app-product>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+</div>
